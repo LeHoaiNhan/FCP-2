@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ProductCard } from "@/components/product-card";
 import { getProducts } from "@/lib/catalog";
@@ -13,14 +14,15 @@ export default async function HomePage() {
   return (
     <>
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(120deg,#1f4d32_0%,#2f6b45_48%,#5a7d3a_100%)]" />
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 20% 20%, rgba(255,255,255,.25), transparent 40%), radial-gradient(circle at 80% 0%, rgba(255,255,255,.12), transparent 35%)",
-          }}
+        <Image
+          src="/images/home/hero.jpg"
+          alt="Flora Global — nông nghiệp hữu cơ"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
+        <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(20,36,26,.88)_0%,rgba(31,77,50,.55)_55%,rgba(31,77,50,.25)_100%)]" />
         <div className="relative mx-auto flex min-h-[78vh] max-w-6xl flex-col justify-end px-4 pb-16 pt-24 md:px-6 md:pb-20">
           <p className="mb-4 text-xs uppercase tracking-[0.28em] text-white/70">
             Flora Global
@@ -95,13 +97,26 @@ export default async function HomePage() {
               <Link
                 key={s.id}
                 href={`/dich-vu/${s.slug}`}
-                className="border border-[var(--line)] bg-[var(--bg)] p-5 transition hover:border-[var(--brand)]"
+                className="group overflow-hidden border border-[var(--line)] bg-[var(--bg)] transition hover:border-[var(--brand)]"
               >
-                <p className="text-xs text-[var(--muted)]">0{i + 1}</p>
-                <h3 className="mt-2 font-[family-name:var(--font-display)] text-lg leading-snug">
-                  {s.title}
-                </h3>
-                <p className="mt-2 text-sm text-[var(--muted)]">{s.summary}</p>
+                <div className="relative aspect-[4/3]">
+                  {s.image_url && (
+                    <Image
+                      src={s.image_url}
+                      alt={s.title}
+                      fill
+                      sizes="25vw"
+                      className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                    />
+                  )}
+                </div>
+                <div className="p-5">
+                  <p className="text-xs text-[var(--muted)]">0{i + 1}</p>
+                  <h3 className="mt-2 font-[family-name:var(--font-display)] text-lg leading-snug">
+                    {s.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-[var(--muted)]">{s.summary}</p>
+                </div>
               </Link>
             ))}
           </div>
@@ -123,15 +138,28 @@ export default async function HomePage() {
             <Link
               key={post.id}
               href={`/blog/${post.slug}`}
-              className="border border-[var(--line)] bg-white p-5 transition hover:border-[var(--brand)]"
+              className="group overflow-hidden border border-[var(--line)] bg-white transition hover:border-[var(--brand)]"
             >
-              <time className="text-xs text-[var(--muted)]">
-                {new Date(post.published_at).toLocaleDateString("vi-VN")}
-              </time>
-              <h3 className="mt-2 font-[family-name:var(--font-display)] text-xl leading-snug">
-                {post.title}
-              </h3>
-              <p className="mt-2 line-clamp-3 text-sm text-[var(--muted)]">{post.excerpt}</p>
+              <div className="relative aspect-[16/10] bg-[var(--bg)]">
+                {post.cover_url && (
+                  <Image
+                    src={post.cover_url}
+                    alt={post.title}
+                    fill
+                    sizes="33vw"
+                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                  />
+                )}
+              </div>
+              <div className="p-5">
+                <time className="text-xs text-[var(--muted)]">
+                  {new Date(post.published_at).toLocaleDateString("vi-VN")}
+                </time>
+                <h3 className="mt-2 font-[family-name:var(--font-display)] text-xl leading-snug">
+                  {post.title}
+                </h3>
+                <p className="mt-2 line-clamp-3 text-sm text-[var(--muted)]">{post.excerpt}</p>
+              </div>
             </Link>
           ))}
         </div>

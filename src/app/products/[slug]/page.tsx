@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AddToCartButton } from "@/components/add-to-cart-button";
@@ -29,7 +30,20 @@ export default async function ProductDetailPage({ params }: Props) {
 
   return (
     <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-2 md:px-6">
-      <div className="aspect-square bg-[linear-gradient(145deg,#dce8d4_0%,#b7c9a5_45%,#6f8f5a_100%)]" />
+      <div className="relative aspect-square overflow-hidden border border-[var(--line)] bg-[var(--bg)]">
+        {product.image_url ? (
+          <Image
+            src={product.image_url}
+            alt={product.name}
+            fill
+            priority
+            sizes="(max-width:768px) 100vw, 50vw"
+            className="object-cover"
+          />
+        ) : (
+          <div className="absolute inset-0 bg-[linear-gradient(145deg,#dce8d4_0%,#b7c9a5_45%,#6f8f5a_100%)]" />
+        )}
+      </div>
       <div>
         <Link
           href="/products"

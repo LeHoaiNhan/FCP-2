@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { getPosts } from "@/lib/content";
 
@@ -23,16 +24,29 @@ export default async function BlogPage() {
           <Link
             key={post.id}
             href={`/blog/${post.slug}`}
-            className="group flex flex-col border border-[var(--line)] bg-white p-5 transition hover:border-[var(--brand)]"
+            className="group flex flex-col overflow-hidden border border-[var(--line)] bg-white transition hover:border-[var(--brand)]"
           >
-            <time className="text-xs text-[var(--muted)]">
-              {new Date(post.published_at).toLocaleDateString("vi-VN")}
-            </time>
-            <h2 className="mt-2 font-[family-name:var(--font-display)] text-xl leading-snug text-[var(--ink)] group-hover:text-[var(--brand)]">
-              {post.title}
-            </h2>
-            <p className="mt-3 line-clamp-3 text-sm text-[var(--muted)]">{post.excerpt}</p>
-            <span className="mt-4 text-sm font-medium text-[var(--brand)]">Đọc tiếp →</span>
+            <div className="relative aspect-[16/10] bg-[var(--bg)]">
+              {post.cover_url && (
+                <Image
+                  src={post.cover_url}
+                  alt={post.title}
+                  fill
+                  sizes="(max-width:768px) 100vw, 33vw"
+                  className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                />
+              )}
+            </div>
+            <div className="flex flex-1 flex-col p-5">
+              <time className="text-xs text-[var(--muted)]">
+                {new Date(post.published_at).toLocaleDateString("vi-VN")}
+              </time>
+              <h2 className="mt-2 font-[family-name:var(--font-display)] text-xl leading-snug text-[var(--ink)] group-hover:text-[var(--brand)]">
+                {post.title}
+              </h2>
+              <p className="mt-3 line-clamp-3 text-sm text-[var(--muted)]">{post.excerpt}</p>
+              <span className="mt-4 text-sm font-medium text-[var(--brand)]">Đọc tiếp →</span>
+            </div>
           </Link>
         ))}
       </div>

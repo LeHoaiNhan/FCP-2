@@ -15,6 +15,7 @@ export type Service = {
   slug: string;
   summary: string;
   body: string;
+  image_url: string | null;
 };
 
 function titleFromSlug(slug: string) {
@@ -34,7 +35,7 @@ export const LOCAL_POSTS: Post[] = [
     content: `Công ty TNHH Flora Global tư vấn chứng nhận hữu cơ, giải pháp vùng trồng và sản phẩm nông nghiệp hữu cơ.
 
 Chúng tôi kết nối nông dân với tiêu chuẩn USDA, EU Organic, GlobalG.A.P. và HACCP — giúp sản phẩm Việt Nam tiếp cận thị trường quốc tế.`,
-    cover_url: null,
+    cover_url: "/images/blog/ceo-thuy-hoa.jpg",
     status: "published",
     published_at: "2025-09-04T00:00:00.000Z",
   },
@@ -47,7 +48,7 @@ Chúng tôi kết nối nông dân với tiêu chuẩn USDA, EU Organic, GlobalG
     content: `Thị trường nông sản hữu cơ đang tăng trưởng bất chấp thách thức kinh tế. Người tiêu dùng sẵn sàng chi trả cao hơn cho sản phẩm bền vững và an toàn.
 
 Tại Việt Nam, phong trào sản xuất hữu cơ được nhân rộng tại nhiều địa phương, mở ra cơ hội xuất khẩu và tiêu dùng nội địa.`,
-    cover_url: null,
+    cover_url: "/images/blog/organic-market.png",
     status: "published",
     published_at: "2025-08-20T00:00:00.000Z",
   },
@@ -60,7 +61,7 @@ Tại Việt Nam, phong trào sản xuất hữu cơ được nhân rộng tại
     content: `Việt Nam đang đẩy mạnh nông nghiệp hữu cơ thông qua chứng nhận, hỗ trợ vùng trồng và liên kết chuỗi giá trị.
 
 Flora Global đồng hành với doanh nghiệp và nông hộ trong tư vấn chứng nhận, đầu vào hữu cơ và logistics xuất khẩu.`,
-    cover_url: null,
+    cover_url: "/images/blog/vn-organic.png",
     status: "published",
     published_at: "2025-08-10T00:00:00.000Z",
   },
@@ -73,7 +74,7 @@ Flora Global đồng hành với doanh nghiệp và nông hộ trong tư vấn c
     content: `Theo báo cáo Nông nghiệp hữu cơ toàn cầu của FiBL, diện tích canh tác hữu cơ tiếp tục mở rộng, với nhiều quốc gia ghi nhận tăng trưởng về số lượng nhà sản xuất.
 
 Việt Nam nằm trong nhóm quốc gia có mức tăng trưởng đáng kể — cơ hội cho doanh nghiệp chuẩn bị chứng nhận và chuỗi cung ứng xuất khẩu.`,
-    cover_url: null,
+    cover_url: "/images/blog/fibl.jpg",
     status: "published",
     published_at: "2025-09-08T00:00:00.000Z",
   },
@@ -86,7 +87,7 @@ Việt Nam nằm trong nhóm quốc gia có mức tăng trưởng đáng kể �
     content: `Năm 2025, nông nghiệp hữu cơ gắn với canh tác chính xác, tuân thủ chứng nhận toàn cầu, đầu vào chất lượng cao và chuỗi xuất khẩu bảo toàn nhiệt độ.
 
 Flora Global tập trung vào bốn trụ cột: Elite Inputs, Precision Growing, Total Compliance và Seamless Export.`,
-    cover_url: null,
+    cover_url: "/images/blog/trends.jpg",
     status: "published",
     published_at: "2025-07-15T00:00:00.000Z",
   },
@@ -99,7 +100,7 @@ Flora Global tập trung vào bốn trụ cột: Elite Inputs, Precision Growing
     excerpt: "Hướng đi bền vững cho nền nông nghiệp Việt Nam trong kỷ nguyên hữu cơ.",
     content:
       "Chuyển đổi hữu cơ không chỉ là xu hướng tiêu dùng mà còn là chiến lược dài hạn cho nông nghiệp Việt Nam — từ vùng trồng đến thị trường xuất khẩu.",
-    cover_url: null,
+    cover_url: "/images/home/hero-alt.jpg",
     status: "published",
     published_at: "2025-06-01T00:00:00.000Z",
   },
@@ -112,6 +113,7 @@ export const LOCAL_SERVICES: Service[] = [
     slug: "premium-agricultural-inputs-the-japanese-foundation",
     summary: "Đầu vào hữu cơ Nhật Bản — nền tảng dinh dưỡng đất.",
     body: "Nhập khẩu phân gà hữu cơ đã lên men và xử lý nhiệt từ Nhật Bản, đảm bảo dinh dưỡng cao và an toàn cho vùng trồng hữu cơ.",
+    image_url: "/images/services/elite.jpg",
   },
   {
     id: "svc-2",
@@ -119,6 +121,7 @@ export const LOCAL_SERVICES: Service[] = [
     slug: "farming-precision-cultivation-the-honey-no-9-legacy",
     summary: "Canh tác chính xác trên các vùng trồng trọng điểm.",
     body: "Áp dụng quy trình sinh học chuẩn xác tại Đồng Nai, Long An, Kiên Giang để đảm bảo độ đồng đều và chất lượng trái cây cao.",
+    image_url: "/images/services/precision.jpg",
   },
   {
     id: "svc-3",
@@ -126,6 +129,7 @@ export const LOCAL_SERVICES: Service[] = [
     slug: "organic-certification-global-compliance-solutions",
     summary: "Tư vấn chứng nhận USDA, EU Organic, GlobalG.A.P., HACCP.",
     body: "Đội ngũ chuyên gia đồng hành qua toàn bộ quy trình audit và hồ sơ chứng nhận để mở cửa thị trường quốc tế.",
+    image_url: "/images/services/compliance.jpg",
   },
   {
     id: "svc-4",
@@ -133,5 +137,6 @@ export const LOCAL_SERVICES: Service[] = [
     slug: "the-export-logistic-chain-precision-velocity-thermal-integrity",
     summary: "Logistics xuất khẩu từ sau thu hoạch đến thị trường đích.",
     body: "Quản lý chuỗi lạnh, vận tải quốc tế và chứng từ xuất khẩu — giữ độ tươi và tuân thủ tại điểm đến.",
+    image_url: "/images/services/export.jpg",
   },
 ];

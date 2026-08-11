@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/lib/data/local";
 import { formatPrice } from "@/lib/format";
@@ -8,7 +9,18 @@ export function ProductCard({ product }: { product: Product }) {
       href={`/products/${product.slug}`}
       className="group flex flex-col overflow-hidden border border-[var(--line)] bg-white transition hover:border-[var(--brand)]"
     >
-      <div className="relative aspect-[4/3] bg-[linear-gradient(145deg,#dce8d4_0%,#b7c9a5_45%,#6f8f5a_100%)]">
+      <div className="relative aspect-[4/3] overflow-hidden bg-[var(--bg)]">
+        {product.image_url ? (
+          <Image
+            src={product.image_url}
+            alt={product.name}
+            fill
+            sizes="(max-width:768px) 100vw, 25vw"
+            className="object-cover transition duration-500 group-hover:scale-[1.03]"
+          />
+        ) : (
+          <div className="absolute inset-0 bg-[linear-gradient(145deg,#dce8d4_0%,#b7c9a5_45%,#6f8f5a_100%)]" />
+        )}
         <div className="absolute inset-0 flex items-end p-4">
           <span className="rounded-sm bg-white/90 px-2 py-1 text-[11px] uppercase tracking-wider text-[var(--brand)]">
             Organic

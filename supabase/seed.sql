@@ -6,7 +6,7 @@ insert into public.categories (id, name, slug, description, sort_order) values
   ('11111111-1111-1111-1111-111111111102', 'Nguyên liệu nhập khẩu hữu cơ', 'nguyen-lieu-nhap-khau-huu-co', 'Nguyên liệu hữu cơ nhập khẩu', 2)
 on conflict (slug) do nothing;
 
-insert into public.products (id, name, slug, short_description, price, currency, stock_status, status, seo_title) values
+insert into public.products (id, name, slug, short_description, price, currency, stock_status, status, seo_title, image_url) values
   (
     '22222222-2222-2222-2222-222222222201',
     'Phân gà hữu cơ Nhật Bản',
@@ -16,7 +16,8 @@ insert into public.products (id, name, slug, short_description, price, currency,
     'VND',
     'instock',
     'published',
-    'Phân gà hữu cơ Nhật Bản | Flora Global'
+    'Phân gà hữu cơ Nhật Bản | Flora Global',
+    '/images/products/phan-ga.jpg'
   ),
   (
     '22222222-2222-2222-2222-222222222202',
@@ -27,7 +28,8 @@ insert into public.products (id, name, slug, short_description, price, currency,
     'VND',
     'instock',
     'published',
-    'Phân bón hữu cơ từ tro phân gà nung | Flora Global'
+    'Phân bón hữu cơ từ tro phân gà nung | Flora Global',
+    '/images/products/phan-bon.jpg'
   ),
   (
     '22222222-2222-2222-2222-222222222203',
@@ -38,7 +40,8 @@ insert into public.products (id, name, slug, short_description, price, currency,
     'VND',
     'instock',
     'published',
-    'Bột Protein từ cá | Flora Global'
+    'Bột Protein từ cá | Flora Global',
+    '/images/products/bot-protein.jpg'
   ),
   (
     '22222222-2222-2222-2222-222222222204',
@@ -49,12 +52,14 @@ insert into public.products (id, name, slug, short_description, price, currency,
     'VND',
     'instock',
     'published',
-    'Bột hạt sen 100% nguyên chất | Flora Global'
+    'Bột hạt sen 100% nguyên chất | Flora Global',
+    '/images/products/bot-hat-sen.jpg'
   )
 on conflict (slug) do update set
   name = excluded.name,
   price = excluded.price,
-  status = excluded.status;
+  status = excluded.status,
+  image_url = excluded.image_url;
 
 insert into public.product_categories (product_id, category_id) values
   ('22222222-2222-2222-2222-222222222201', '11111111-1111-1111-1111-111111111102'),

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPostBySlug, getPosts } from "@/lib/content";
@@ -27,6 +28,18 @@ export default async function BlogPostPage({ params }: Props) {
       <Link href="/blog" className="text-sm text-[var(--muted)] hover:text-[var(--brand)]">
         ← Tin tức
       </Link>
+      {post.cover_url && (
+        <div className="relative mt-6 aspect-[16/9] overflow-hidden border border-[var(--line)]">
+          <Image
+            src={post.cover_url}
+            alt={post.title}
+            fill
+            priority
+            sizes="(max-width:768px) 100vw, 768px"
+            className="object-cover"
+          />
+        </div>
+      )}
       <time className="mt-6 block text-xs text-[var(--muted)]">
         {new Date(post.published_at).toLocaleDateString("vi-VN")}
       </time>

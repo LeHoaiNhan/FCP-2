@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { getServices } from "@/lib/content";
 
@@ -23,15 +24,28 @@ export default async function ServicesPage() {
           <Link
             key={s.id}
             href={`/dich-vu/${s.slug}`}
-            className="border border-[var(--line)] bg-white p-6 transition hover:border-[var(--brand)]"
+            className="group overflow-hidden border border-[var(--line)] bg-white transition hover:border-[var(--brand)]"
           >
-            <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">
-              0{i + 1}
-            </p>
-            <h2 className="mt-2 font-[family-name:var(--font-display)] text-2xl text-[var(--ink)]">
-              {s.title}
-            </h2>
-            <p className="mt-3 text-sm text-[var(--muted)]">{s.summary}</p>
+            <div className="relative aspect-[16/9]">
+              {s.image_url && (
+                <Image
+                  src={s.image_url}
+                  alt={s.title}
+                  fill
+                  sizes="50vw"
+                  className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                />
+              )}
+            </div>
+            <div className="p-6">
+              <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">
+                0{i + 1}
+              </p>
+              <h2 className="mt-2 font-[family-name:var(--font-display)] text-2xl text-[var(--ink)]">
+                {s.title}
+              </h2>
+              <p className="mt-3 text-sm text-[var(--muted)]">{s.summary}</p>
+            </div>
           </Link>
         ))}
       </div>
