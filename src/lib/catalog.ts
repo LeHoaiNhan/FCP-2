@@ -15,8 +15,8 @@ export async function getProducts(opts?: {
     return list;
   }
 
-  const { createClient } = await import("@/lib/supabase/server");
-  const supabase = await createClient();
+  const { createPublicClient } = await import("@/lib/supabase/public");
+  const supabase = createPublicClient();
   let query = supabase
     .from("products")
     .select("*")
@@ -50,8 +50,8 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
     return LOCAL_PRODUCTS.find((p) => p.slug === slug && p.status === "published") ?? null;
   }
 
-  const { createClient } = await import("@/lib/supabase/server");
-  const supabase = await createClient();
+  const { createPublicClient } = await import("@/lib/supabase/public");
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("products")
     .select("*")
@@ -65,8 +65,8 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
 export async function getCategories(): Promise<Category[]> {
   if (useLocal()) return LOCAL_CATEGORIES;
 
-  const { createClient } = await import("@/lib/supabase/server");
-  const supabase = await createClient();
+  const { createPublicClient } = await import("@/lib/supabase/public");
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("categories")
     .select("*")

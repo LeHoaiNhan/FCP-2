@@ -11,8 +11,8 @@ export async function getPosts(): Promise<Post[]> {
     );
   }
 
-  const { createClient } = await import("@/lib/supabase/server");
-  const supabase = await createClient();
+  const { createPublicClient } = await import("@/lib/supabase/public");
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("posts")
     .select("*")
@@ -27,8 +27,8 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     return LOCAL_POSTS.find((p) => p.slug === slug && p.status === "published") ?? null;
   }
 
-  const { createClient } = await import("@/lib/supabase/server");
-  const supabase = await createClient();
+  const { createPublicClient } = await import("@/lib/supabase/public");
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("posts")
     .select("*")
