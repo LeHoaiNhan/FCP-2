@@ -3,6 +3,8 @@ import { CartBadge } from "./cart-badge";
 
 const links = [
   { href: "/products", label: "Sản phẩm" },
+  { href: "/dich-vu", label: "Dịch vụ" },
+  { href: "/blog", label: "Tin tức" },
   { href: "/about-us", label: "Về chúng tôi" },
   { href: "/contact", label: "Liên hệ" },
 ];

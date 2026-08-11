@@ -19,6 +19,16 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/dich-vu" className="hover:underline">
+                Dịch vụ
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog" className="hover:underline">
+                Tin tức
+              </Link>
+            </li>
+            <li>
               <Link href="/about-us" className="hover:underline">
                 Về chúng tôi
               </Link>

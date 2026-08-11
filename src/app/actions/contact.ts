@@ -17,8 +17,8 @@ export async function submitContact(formData: FormData) {
     redirect("/contact?sent=1");
   }
 
-  const { createClient } = await import("@/lib/supabase/server");
-  const supabase = await createClient();
+  const { createServiceClient } = await import("@/lib/supabase/service");
+  const supabase = createServiceClient();
   await supabase.from("contact_submissions").insert({
     name,
     email,

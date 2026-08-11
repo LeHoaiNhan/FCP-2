@@ -56,8 +56,8 @@ export async function createOrder(
     return { ok: true, orderNumber };
   }
 
-  const { createClient } = await import("@/lib/supabase/server");
-  const supabase = await createClient();
+  const { createServiceClient } = await import("@/lib/supabase/service");
+  const supabase = createServiceClient();
 
   const { data: order, error } = await supabase
     .from("orders")

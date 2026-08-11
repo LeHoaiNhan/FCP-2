@@ -69,3 +69,42 @@ insert into public.pages (title, slug, content, status, seo_title) values
   ('Liên hệ', 'contact', 'Liên hệ Flora Global', 'published', 'Contact | Flora Global'),
   ('Sản phẩm', 'products', 'Danh mục sản phẩm', 'published', 'Products | Flora Global')
 on conflict (slug) do nothing;
+
+insert into public.posts (id, title, slug, excerpt, content, status, published_at) values
+  (
+    '33333333-3333-3333-3333-333333333301',
+    'CEO Lê Thị Thúy Hoa và khát vọng cùng nông dân hiện thực hóa nông nghiệp organic',
+    'ceo-le-thi-thuy-hoa-va-khat-vong-cung-nong-dan-hien-thuc-hoa-nong-nghiep-organic',
+    'Hành trình của Flora Global đồng hành cùng nông dân Việt Nam xây dựng chuỗi giá trị nông nghiệp hữu cơ.',
+    'Công ty TNHH Flora Global tư vấn chứng nhận hữu cơ, giải pháp vùng trồng và sản phẩm nông nghiệp hữu cơ.',
+    'published',
+    '2025-09-04T00:00:00Z'
+  ),
+  (
+    '33333333-3333-3333-3333-333333333302',
+    'Nông sản hữu cơ chiếm ưu thế vượt trội',
+    'nong-san-huu-co-chiem-uu-the-vuot-troi',
+    'Người tiêu dùng ưu tiên thành phần tự nhiên — nhu cầu nông sản hữu cơ tăng trưởng bền vững.',
+    'Thị trường nông sản hữu cơ đang tăng trưởng bất chấp thách thức kinh tế.',
+    'published',
+    '2025-08-20T00:00:00Z'
+  ),
+  (
+    '33333333-3333-3333-3333-333333333303',
+    'Việt Nam đẩy mạnh phát triển nông nghiệp hữu cơ',
+    'viet-nam-day-manh-phat-trien-nong-nghiep-huu-co',
+    'Chính sách và thực tiễn thúc đẩy chuyển đổi sang mô hình nông nghiệp hữu cơ tại Việt Nam.',
+    'Việt Nam đang đẩy mạnh nông nghiệp hữu cơ thông qua chứng nhận và liên kết chuỗi giá trị.',
+    'published',
+    '2025-08-10T00:00:00Z'
+  ),
+  (
+    '33333333-3333-3333-3333-333333333304',
+    'Diện tích nông nghiệp hữu cơ toàn cầu đạt gần 99 triệu ha',
+    'dien-tich-nong-nghiep-huu-co-toan-cau-dat-gan-99-trieu-ha',
+    'Báo cáo FiBL phản ánh xu hướng phát triển tích cực của thị trường hữu cơ toàn cầu.',
+    'Theo báo cáo FiBL, diện tích canh tác hữu cơ tiếp tục mở rộng trên toàn cầu.',
+    'published',
+    '2025-09-08T00:00:00Z'
+  )
+on conflict (slug) do nothing;
