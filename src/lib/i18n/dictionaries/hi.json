@@ -78,7 +78,7 @@
     "servicesTitle": "सेवाएँ",
     "blogsTitle": "ब्लॉग",
     "companyTitle": "Flora Global कंपनी लिमिटेड",
-    "address": "692/31 Đoàn Văn Bơ स्ट्रीट, Xom Chieu वार्ड, हो ची मिन्ह सिटी, वियतनाम",
+    "address": "692/31 Doan Van Bo स्ट्रीट, Xom Chieu वार्ड, हो ची मिन्ह सिटी, वियतनाम",
     "facebook": "Facebook: Flora Global – Ms. Hoa",
     "copyright": "कॉपीराइट {year} © Flora Global"
   },
@@ -96,7 +96,11 @@
     "backProducts": "← उत्पादों पर वापस",
     "inStock": "स्टॉक में",
     "outOfStock": "स्टॉक समाप्त",
-    "organic": "ऑर्गेनिक"
+    "organic": "ऑर्गेनिक",
+    "priceOnRequest": "मूल्य हेतु संपर्क करें",
+    "requestQuote": "कोटेशन का अनुरोध करें",
+    "addToCart": "कार्ट में जोड़ें",
+    "addedToCart": "कार्ट में जोड़ा गया"
   },
   "about": {
     "eyebrow": "“पारिस्थितिकी तंत्र” के नेता",

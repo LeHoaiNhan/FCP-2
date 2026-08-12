@@ -136,6 +136,7 @@ export default async function HomePage({ params }: Props) {
                 product={p}
                 href={withLocale(lang, `/products/${p.slug}`)}
                 organicLabel={dict.common.organic}
+                priceOnRequestLabel={dict.common.priceOnRequest}
               />
             ))}
           </div>

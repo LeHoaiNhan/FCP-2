@@ -59,7 +59,7 @@ export default async function ProductDetailPage({ params }: Props) {
           {product.name}
         </h1>
         <p className="mt-4 text-2xl font-semibold text-[var(--brand)]">
-          {formatPrice(product.price, product.currency)}
+          {formatPrice(product.price, product.currency, dict.common.priceOnRequest)}
         </p>
         <p className="mt-2 text-sm text-[var(--muted)]">
           {product.stock_status === "instock"
@@ -68,7 +68,13 @@ export default async function ProductDetailPage({ params }: Props) {
         </p>
         <p className="mt-6 leading-relaxed text-[var(--ink)]/85">{product.description}</p>
         <div className="mt-8">
-          <AddToCartButton product={product} />
+          <AddToCartButton
+            product={product}
+            contactHref={withLocale(lang, "/contact")}
+            requestQuoteLabel={dict.common.requestQuote}
+            addToCartLabel={dict.common.addToCart}
+            addedToCartLabel={dict.common.addedToCart}
+          />
         </div>
       </div>
     </div>

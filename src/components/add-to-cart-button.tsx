@@ -5,17 +5,29 @@ import type { Product } from "@/lib/data/local";
 import { useCart } from "@/lib/cart-store";
 import { formatPrice } from "@/lib/format";
 
-export function AddToCartButton({ product }: { product: Product }) {
+export function AddToCartButton({
+  product,
+  contactHref = "/contact",
+  requestQuoteLabel = "Liên hệ báo giá",
+  addToCartLabel = "Thêm vào giỏ",
+  addedToCartLabel = "Đã thêm vào giỏ",
+}: {
+  product: Product;
+  contactHref?: string;
+  requestQuoteLabel?: string;
+  addToCartLabel?: string;
+  addedToCartLabel?: string;
+}) {
   const addItem = useCart((s) => s.addItem);
   const [added, setAdded] = useState(false);
 
   if (product.price == null) {
     return (
       <a
-        href="/contact"
+        href={contactHref}
         className="inline-flex items-center justify-center rounded-sm bg-[var(--brand)] px-6 py-3 text-sm font-medium text-white transition hover:bg-[var(--brand-2)]"
       >
-        Liên hệ báo giá
+        {requestQuoteLabel}
       </a>
     );
   }
@@ -36,7 +48,9 @@ export function AddToCartButton({ product }: { product: Product }) {
       }}
       className="inline-flex items-center justify-center rounded-sm bg-[var(--brand)] px-6 py-3 text-sm font-medium text-white transition hover:bg-[var(--brand-2)]"
     >
-      {added ? "Đã thêm vào giỏ" : `Thêm vào giỏ · ${formatPrice(product.price)}`}
+      {added
+        ? addedToCartLabel
+        : `${addToCartLabel} · ${formatPrice(product.price, product.currency)}`}
     </button>
   );
 }

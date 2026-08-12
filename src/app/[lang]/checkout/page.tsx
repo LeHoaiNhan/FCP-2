@@ -37,7 +37,9 @@ export default function CheckoutPage() {
   if (items.length === 0) {
     return (
       <div className="mx-auto max-w-xl px-4 py-16 text-center">
-        <p className="text-[var(--muted)]">Giỏ hàng trống.</p>
+        <p className="text-[var(--muted)]">
+          {vi ? "Giỏ hàng đang trống." : "Your cart is empty."}
+        </p>
         <Link
           href={withLocale(locale, "/products")}
           className="mt-4 inline-block text-[var(--brand)]"
@@ -52,7 +54,7 @@ export default function CheckoutPage() {
     <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-[1.2fr_0.8fr] md:px-6">
       <div>
         <h1 className="font-[family-name:var(--font-display)] text-4xl">
-          Thanh toán
+          {vi ? "Thanh toán" : "Checkout"}
         </h1>
         <form
           className="mt-8 space-y-4"
@@ -143,7 +145,7 @@ export default function CheckoutPage() {
           ))}
         </ul>
         <p className="mt-6 border-t border-[var(--line)] pt-4 text-lg font-semibold">
-          Tổng: {formatPrice(total)}
+          {vi ? "Tổng" : "Total"}: {formatPrice(total)}
         </p>
       </aside>
     </div>

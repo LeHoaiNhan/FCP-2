@@ -78,7 +78,7 @@
     "servicesTitle": "සේවා",
     "blogsTitle": "බ්ලොග්",
     "companyTitle": "Flora Global සමාගම් සීමාසහිත",
-    "address": "692/31 Đoàn Văn Bơ වීදිය, Xom Chieu වාර්ඩ්, හෝ චි මින් නගරය, වියට්නාමය",
+    "address": "692/31 Doan Van Bo වීදිය, Xom Chieu වාර්ඩ්, හෝ චි මින් නගරය, වියට්නාමය",
     "facebook": "Facebook: Flora Global – Ms. Hoa",
     "copyright": "ප්‍රකාශන හිමිකම {year} © Flora Global"
   },
@@ -96,7 +96,11 @@
     "backProducts": "← නිෂ්පාදන වෙත ආපසු",
     "inStock": "තොගයේ ඇත",
     "outOfStock": "තොගය අවසන්",
-    "organic": "කාබනික"
+    "organic": "කාබනික",
+    "priceOnRequest": "මිල විමසන්න",
+    "requestQuote": "මිල ගණන් ඉල්ලන්න",
+    "addToCart": "කරත්තයට එක් කරන්න",
+    "addedToCart": "කරත්තයට එක් කළා"
   },
   "about": {
     "eyebrow": "“පරිසර පද්ධති” නායකයා",

@@ -78,7 +78,7 @@
     "servicesTitle": "서비스",
     "blogsTitle": "블로그",
     "companyTitle": "Flora Global 유한회사",
-    "address": "베트남 호치민시 Xom Chieu 동 Đoàn Văn Bơ 거리 692/31",
+    "address": "베트남 호치민시 Xom Chieu 동 Doan Van Bo 거리 692/31",
     "facebook": "Facebook: Flora Global – Ms. Hoa",
     "copyright": "저작권 {year} © Flora Global"
   },
@@ -96,7 +96,11 @@
     "backProducts": "← 제품으로 돌아가기",
     "inStock": "재고 있음",
     "outOfStock": "품절",
-    "organic": "유기농"
+    "organic": "유기농",
+    "priceOnRequest": "가격 문의",
+    "requestQuote": "견적 문의",
+    "addToCart": "장바구니 담기",
+    "addedToCart": "장바구니에 담았습니다"
   },
   "about": {
     "eyebrow": "“생태계” 리더",

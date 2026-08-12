@@ -7,10 +7,12 @@ export function ProductCard({
   product,
   href,
   organicLabel = "Organic",
+  priceOnRequestLabel,
 }: {
   product: Product;
   href?: string;
   organicLabel?: string;
+  priceOnRequestLabel?: string;
 }) {
   return (
     <Link
@@ -41,7 +43,7 @@ export function ProductCard({
         </h3>
         <p className="line-clamp-2 text-sm text-[var(--muted)]">{product.short_description}</p>
         <p className="mt-auto pt-2 text-base font-semibold text-[var(--brand)]">
-          {formatPrice(product.price, product.currency)}
+          {formatPrice(product.price, product.currency, priceOnRequestLabel)}
         </p>
       </div>
     </Link>

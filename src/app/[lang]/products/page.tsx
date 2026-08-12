@@ -72,6 +72,7 @@ export default async function ProductsPage({ params, searchParams }: Props) {
               product={p}
               href={withLocale(lang, `/products/${p.slug}`)}
               organicLabel={dict.common.organic}
+              priceOnRequestLabel={dict.common.priceOnRequest}
             />
           ))}
         </div>
