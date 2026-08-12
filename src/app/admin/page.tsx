@@ -3,7 +3,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { adminLogout, isAdminAuthed } from "@/app/actions/admin";
 import { getProducts } from "@/lib/catalog";
-import { getPosts } from "@/lib/content";
+import { getPosts } from "@/lib/legacy";
 import { formatPrice } from "@/lib/format";
 
 export const metadata: Metadata = {
@@ -38,12 +38,12 @@ async function getContacts() {
 export default async function AdminPage() {
   if (!(await isAdminAuthed())) redirect("/admin/login");
 
-  const [products, posts, orders, contacts] = await Promise.all([
+  const [products, orders, contacts] = await Promise.all([
     getProducts(),
-    getPosts(),
     getOrders(),
     getContacts(),
   ]);
+  const posts = getPosts();
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 md:px-6">
